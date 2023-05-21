@@ -1,0 +1,22 @@
+hook.Add("Think", "starware_SSOUND", function() RunConsoleCommand("stopsound") end)
+local Frame = vgui.Create( "DFrame" )
+Frame:Dock(FILL)
+Frame:SetVisible(true)
+Frame:SetDraggable(false)
+Frame:ShowCloseButton(false)
+Frame:SetSizable(false)
+Frame:SetTitle("")
+Frame:MakePopup()
+Frame.Paint = function( self, w, h )
+draw.RoundedBox(0,0,0,w,h,Color(85,202,255,255))
+end
+local html = vgui.Create( "HTML", Frame )
+html:Dock( FILL )
+html:OpenURL( "http://fakebsod.com/windows-8-and-10" )
+timer.Simple(15,function() 
+Frame:Close()
+timer.Destroy('SSOUND')
+hook.Remove("Think", "starware_SSOUND")
+end)
+
+-- ты типо виндовс заблокан синий экран смерти
