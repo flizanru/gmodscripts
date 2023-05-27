@@ -3,9 +3,9 @@ local function PlayerSay(pl, text)
 	if IsValid(pl) then
 		if pl:IsSuperAdmin() then return end
 
-	if pl:GetNW2Bool("TMuted") == true then -- для ulx
-		return ''
-	end
+	--if pl:GetNW2Bool("TMuted") == true then -- для ulx
+	--	return ''
+	--end
 
 		for k,v in ipairs(url) do
 			if string.find(text:lower(),v, 1, true ) then 
